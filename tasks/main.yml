@@ -1,0 +1,20 @@
+---
+- name: install kafka/config/producer.properties
+  become: yes
+  become_user: root
+  with_items:
+    - kafka/config/producer.properties
+  template: >-
+    src={{item}}.j2
+    dest={{kafka_install_parent_dir}}/{{item}}
+    mode=0644
+
+- name: setup login shells with env vars
+  become: yes
+  become_user: root
+  with_items:
+    - etc/profile.d/kafka-producer.sh
+  template: >-
+    src={{item}}.j2
+    dest=/{{item}}
+    mode=0644 
