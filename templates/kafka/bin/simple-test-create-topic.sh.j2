@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+kafka-topics.sh \
+    --create \
+    --topic test-topic \
+    --partition 1 \
+    --replication-factor 2 \
+    --zookeeper $KAFKA_ZK_CONNECT
