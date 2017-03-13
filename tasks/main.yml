@@ -4,7 +4,7 @@
   become_user: root
   with_items:
     - f: producer.properties
-      d: '{{kafka_install_parent_dir}}'
+      d: '{{kafka_install_parent_dir}}/kafka/config'
       m: '0644'
     - f: simple-test-create-topic.sh
       d: '{{kafka_install_parent_dir}}/kafka/bin'
