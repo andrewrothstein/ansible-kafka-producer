@@ -1,29 +1,30 @@
-Role Name
+andrewrothstein.kafka-producer
 =========
 
-A brief description of the role goes here.
+A [Kafka](https://kafka.apache.org/) producer.
 
 Requirements
 ------------
 
-See [meta/main.yml]
+See [meta/main.yml](meta/main.yml)
 
 Role Variables
 --------------
 
-See [defaults/main.yml]
+See [defaults/main.yml](defaults/main.yml)
 
 Dependencies
 ------------
 
-See [meta/main.yml]
+See [meta/main.yml](meta/main.yml)
 
 Example Playbook
 ----------------
-
-    - hosts: servers
-      roles:
-         - username.rolename
+```yml
+- hosts: servers
+  roles:
+    - andrewrothstein.kafka-producer
+```
 
 License
 -------
@@ -33,4 +34,4 @@ MIT
 Author Information
 ------------------
 
-Andrew Rothstein andrew.rothstein@gmail.com
+Andrew Rothstein <andrew.rothstein@gmail.com>
