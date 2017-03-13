@@ -4,13 +4,13 @@
   become_user: root
   with_items:
     - f: producer.properties
-      d: '{{kafka_install_parent_dir}}/kafka/config'
+      d: '{{kafka_dir}}/config'
       m: '0644'
     - f: simple-test-create-topic.sh
-      d: '{{kafka_install_parent_dir}}/kafka/bin'
+      d: '{{kafka_dir}}/bin'
       m: '0755'
     - f: simple-test-run-console-producer.sh
-      d: '{{kafka_install_parent_dir}}/kafka/bin'
+      d: '{{kafka_dir}}/bin'
       m: '0755'
     - f: kafka-producer.sh
       d: /etc/profile.d

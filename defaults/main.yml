@@ -1,5 +1,5 @@
 ---
-kafka_install_parent_dir: /usr/local/kafka
+kafka_dir: /usr/local/kafka
 
 kafka_compression_type: none
 
