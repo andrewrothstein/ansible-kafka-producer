@@ -1,31 +1,21 @@
 ---
-- name: install kafka/config/producer.properties
+- name: install properties, example shell scripts, and environment variables
   become: yes
   become_user: root
   with_items:
-    - kafka/config/producer.properties
-  template: >-
-    src={{item}}.j2
-    dest={{kafka_install_parent_dir}}/{{item}}
-    mode=0644
-
-- name: install test scripts
-  become: yes
-  become_user: root
-  with_items:
-    - kafka/bin/simple-test-create-topic.sh
-    - kafka/bin/simple-test-run-console-producer.sh
-  template: >-
-    src={{item}}.j2
-    dest={{kafka_install_parent_dir}}/{{item}}
-    mode=0755
-
-- name: setup login shells with env vars
-  become: yes
-  become_user: root
-  with_items:
-    - etc/profile.d/kafka-producer.sh
-  template: >-
-    src={{item}}.j2
-    dest=/{{item}}
-    mode=0644 
+    - f: producer.properties
+      d: '{{kafka_install_parent_dir}}'
+      m: '0644'
+    - f: simple-test-create-topic.sh
+      d: '{{kafka_install_parent_dir}}/kafka/bin'
+      m: '0755'
+    - f: simple-test-run-console-producer.sh
+      d: '{{kafka_install_parent_dir}}/kafka/bin'
+      m: '0755'
+    - f: kafka-producer.sh
+      d: /etc/profile.d
+      m: '0644'
+  template:
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: '{{item.m}}'
