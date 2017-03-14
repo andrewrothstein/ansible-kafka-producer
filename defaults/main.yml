@@ -9,3 +9,11 @@ kafka_use_ips: False
 kafka_iface : eth0
 
 kafka_port: 9202
+
+#kafka_partitioner_class: org.drewfus.MyPartitioner
+#kafka_request_timeout_ms: 5000
+#kafka_max_block_ms: 10000
+#kafka_linger_ms: 7500
+#kafka_max_request_size: 1000000
+#kafka_batch_size: 100
+#kafka_buffer_memory: 1000000

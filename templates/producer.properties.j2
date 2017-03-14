@@ -24,22 +24,50 @@ bootstrap.servers={{kafka_broker_connect}}
 compression.type={{kafka_compression_type|default('none')}}
 
 # name of the partitioner class for partitioning events; default partition spreads data randomly
+{% if kafka_partitioner_class is defined %}
+partitioner.class={{kafka_partitioner_class}}
+{% else %}
 #partitioner.class=
+{% endif %}
 
 # the maximum amount of time the client will wait for the response of a request
+{% if kafka_request_timeout_ms is defined %}
+request.timeout.ms={{kafka_request_timeout_ms}}
+{% else %}
 #request.timeout.ms=
+{% endif %}
 
 # how long `KafkaProducer.send` and `KafkaProducer.partitionsFor` will block for
+{% if kafka_max_block_ms is defined %}
+max.block.ms={{kafka_max_block_ms}}
+{% else %}
 #max.block.ms=
+{% endif %}
 
 # the producer will wait for up to the given delay to allow other records to be sent so that the sends can be batched together
+{% if kafka_linger_ms is defined %}
+linger.ms={{kafka_linger_ms}}
+{% else %}
 #linger.ms=
+{% endif %}
 
 # the maximum size of a request in bytes
+{% if kafka_max_request_size is defined %}
+max.request.size={{kafka_max_request_size}}
+{% else %}
 #max.request.size=
+{% endif %}
 
 # the default batch size in bytes when batching multiple records sent to a partition
+{% if kafka_batch_size is defined %}
+batch.size={{kafka_batch_size}}
+{% else %}
 #batch.size=
+{% endif %}
 
 # the total bytes of memory the producer can use to buffer records waiting to be sent to the server
+{% if kafka_buffer_memeory is defined %}
+buffer.memory={{kafka_buffer_memory}}
+{% else %}
 #buffer.memory=
+{% endif %}
