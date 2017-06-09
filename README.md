@@ -1,5 +1,6 @@
 andrewrothstein.kafka-producer
 =========
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-kafka-producer.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-kafka-producer)
 
 A [Kafka](https://kafka.apache.org/) producer.
 
