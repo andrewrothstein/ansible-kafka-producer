@@ -4,18 +4,16 @@
   become_user: root
   with_items:
     - f: producer.properties
-      d: '{{kafka_dir}}/config'
+      d: '{{ kafka_dir }}/config'
       m: '0644'
     - f: simple-test-create-topic.sh
-      d: '{{kafka_dir}}/bin'
-      m: '0755'
+      d: '{{ kafka_dir }}/bin'
     - f: simple-test-run-console-producer.sh
-      d: '{{kafka_dir}}/bin'
-      m: '0755'
+      d: '{{ kafka_dir }}/bin'
     - f: kafka-producer.sh
       d: /etc/profile.d
       m: '0644'
   template:
-    src: '{{item.f}}.j2'
-    dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m}}'
+    src: '{{ item.f }}.j2'
+    dest: '{{ item.d }}/{{ item.f }}'
+    mode: '{{ item.m | default("0755") }}'

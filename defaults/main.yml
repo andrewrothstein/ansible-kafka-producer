@@ -3,10 +3,10 @@ kafka_dir: /usr/local/kafka
 
 kafka_compression_type: none
 
-kafka_log_dirs : /var/log/kafka
+kafka_log_dirs: /var/log/kafka
 
 kafka_use_ips: False
-kafka_iface : eth0
+kafka_iface: eth0
 
 kafka_port: 9202
 
